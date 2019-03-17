@@ -1,0 +1,11 @@
+{% extends 'livros/base.html' %}
+
+{% block content %}
+     <div>    
+     	{% if user.is_authenticated %}    
+     	<a class="btn btn-default" href="{% url 'livro_edit' pk=livro.pk %}">[Editar]</a> 
+     	{% endif %}
+
+   		<h2>Livro: {{ livro.titulo }} inserido com sucesso</h2>
+    </div>
+{% endblock %}
