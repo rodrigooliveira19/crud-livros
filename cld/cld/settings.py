@@ -119,5 +119,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
-ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com'] 
+ALLOWED_HOSTS = ['127.0.0.1', 'http://rodrigooliveira19.pythonanywhere.com'] 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
