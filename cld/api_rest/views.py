@@ -32,4 +32,33 @@ class CadastrarLivroServiceView(APIView):
 		return Response(serializer.data)
 
 
+class AtualizarLivroServiceView(APIView):
+
+	def post(self,request,format=None):
+
+		livro = models.Livro.objects.get(codigo=request.data.get('codigo'))
+		livro.ISBN = request.data.get('ISBN')
+		livro.titulo = request.data.get('titulo')
+		livro.autor = request.data.get('autor')
+		livro.ano = request.data.get('ano')
+		livro.editora = request.data.get('editora')
+
+		livro.save()
+
+		serializer =  serializers.LivroSerializer(livro)
+		return Response(serializer.data)
+
+
+class ExcluirLivroServiceView(APIView):
+
+	def post(self,request,format=None):
+
+		livro = models.Livro.objects.get(codigo=request.data.get('codigo'))
+
+		livro.delete()
+
+		serializer = serializers.LivroSerializer(livro)
+		return Response(serializer.data)
+
+
 
